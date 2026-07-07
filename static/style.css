@@ -1,81 +1,139 @@
 body{
     margin:0;
     padding:0;
-    background:#f4f7fb;
+    background:linear-gradient(135deg,#eef5ff,#f8fff4);
     font-family:Arial, Helvetica, sans-serif;
+    color:#333;
 }
 
 .container{
-    width:80%;
+    width:90%;
     max-width:900px;
     margin:40px auto;
     background:#fff;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,.1);
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
 h1{
     text-align:center;
     color:#0d6efd;
+    margin-bottom:5px;
 }
 
 .tagline{
     text-align:center;
-    color:#555;
+    color:#666;
     font-size:18px;
+    margin-bottom:20px;
 }
 
-input, textarea{
+hr{
+    border:none;
+    height:1px;
+    background:#ddd;
+    margin:30px 0;
+}
+
+h2{
+    color:#0d6efd;
+}
+
+input,
+textarea{
     width:100%;
-    padding:12px;
+    padding:14px;
     margin:10px 0;
     border:1px solid #ccc;
-    border-radius:6px;
+    border-radius:8px;
     font-size:16px;
     box-sizing:border-box;
+    transition:.3s;
+}
+
+input:focus,
+textarea:focus{
+    outline:none;
+    border-color:#0d6efd;
+    box-shadow:0 0 8px rgba(13,110,253,.25);
 }
 
 textarea{
-    height:120px;
+    height:130px;
     resize:vertical;
 }
 
 button{
+    width:100%;
     background:#0d6efd;
-    color:white;
+    color:#fff;
     border:none;
-    padding:12px 20px;
-    border-radius:6px;
+    padding:14px;
+    border-radius:8px;
     cursor:pointer;
-    font-size:16px;
+    font-size:17px;
+    font-weight:bold;
+    transition:.3s;
 }
 
 button:hover{
     background:#0b5ed7;
+    transform:translateY(-2px);
 }
 
 .result{
     margin-top:20px;
-    padding:15px;
+    padding:20px;
     background:#eef6ff;
-    border-left:5px solid #0d6efd;
-    border-radius:6px;
+    border-left:6px solid #0d6efd;
+    border-radius:10px;
 }
 
 .success{
     margin-top:20px;
-    padding:15px;
-    background:#d1f7d6;
-    border-left:5px solid green;
-    border-radius:6px;
+    padding:20px;
+    background:#d8f8dc;
+    border-left:6px solid #198754;
+    border-radius:10px;
+    text-align:center;
+}
+
+.success h2{
+    color:#198754;
+    margin:10px 0;
 }
 
 pre{
     white-space:pre-wrap;
     font-family:inherit;
+    font-size:15px;
 }
 
 ul{
     line-height:2;
+    padding-left:20px;
+}
+
+footer{
+    margin-top:20px;
+    color:#666;
+    font-size:14px;
+}
+
+@media(max-width:768px){
+
+.container{
+    width:95%;
+    padding:20px;
+}
+
+h1{
+    font-size:30px;
+}
+
+button{
+    font-size:16px;
+}
+
 }
