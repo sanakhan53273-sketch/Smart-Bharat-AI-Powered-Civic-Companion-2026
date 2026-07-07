@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import random
 
 app = Flask(__name__)
 
@@ -22,8 +23,21 @@ government_services = {
     "ayushman": {
         "answer": "Check your eligibility for Ayushman Bharat and apply online.",
         "documents": "Aadhaar Card, Ration Card (if applicable)."
+    },
+    "driving licence": {
+        "answer": "Apply through the Parivahan Portal for a Driving Licence.",
+        "documents": "Aadhaar Card, Address Proof, Passport-size Photo."
+    },
+    "voter id": {
+        "answer": "Apply through the Election Commission Portal.",
+        "documents": "Aadhaar Card, Address Proof, Passport-size Photo."
+    },
+    "ration card": {
+        "answer": "Apply through your State Food and Civil Supplies Portal.",
+        "documents": "Identity Proof, Address Proof, Family Details."
     }
 }
+
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -41,33 +55,50 @@ def home():
             for key in government_services:
                 if key in query:
                     service = government_services[key]
-                    response = f"""
-Service: {key.title()}
 
-Answer:
+                    response = f"""
+🏛 Service: {key.title()}
+
+✅ Answer:
 {service['answer']}
 
-Required Documents:
+📄 Required Documents:
 {service['documents']}
 """
+
                     found = True
                     break
 
             if not found:
-                response = "Sorry, I couldn't find the requested government service."
+                response = """
+❌ Sorry!
+
+I couldn't find the requested government service.
+
+Try searching for:
+• Aadhaar
+• PAN Card
+• Passport
+• PM Kisan
+• Ayushman Bharat
+• Driving Licence
+• Voter ID
+• Ration Card
+"""
 
         # Complaint Form
         elif "issue" in request.form:
             name = request.form["name"]
             issue = request.form["issue"]
 
-            complaint_id = "SB2026" + str(len(name) + len(issue) + 1000)
+            complaint_id = f"SB2026{random.randint(100000,999999)}"
 
     return render_template(
         "index.html",
         response=response,
         complaint_id=complaint_id
     )
+
 
 if __name__ == "__main__":
     app.run(debug=True)
