@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🇮🇳 Smart Bharat - AI Powered Civic Companion</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
@@ -13,29 +14,40 @@
 <div class="container">
 
     <h1>🇮🇳 Smart Bharat</h1>
+
     <p class="tagline">
         AI Powered Civic Companion
     </p>
 
-    <p style="text-align:center;">
-        Empowering citizens with AI-powered access to government services,
-        complaint registration, and digital assistance.
+    <p class="subtitle">
+        Helping citizens access Government Services, Complaint Registration,
+        AI Assistance and Digital Governance.
     </p>
 
     <hr>
 
-    <h2>🤖 AI Government Service Assistant</h2>
+    <h2>🌐 Select Language</h2>
 
     <form method="POST">
+
+        <select name="language">
+
+            <option value="English">English</option>
+
+            <option value="Hindi">Hindi</option>
+
+        </select>
+
+        <br><br>
 
         <input
             type="text"
             name="query"
-            placeholder="Ask about Aadhaar, PAN, Passport, Driving Licence, Voter ID..."
+            placeholder="Ask about Aadhaar, PAN, Passport, PM Kisan..."
             required>
 
         <button type="submit">
-            🔍 Ask AI
+            🤖 Ask AI
         </button>
 
     </form>
@@ -44,7 +56,7 @@
 
     <div class="result">
 
-        <h3>🤖 AI Response</h3>
+        <h3>AI Response</h3>
 
         <pre>{{ response }}</pre>
 
@@ -54,14 +66,14 @@
 
     <hr>
 
-    <h2>📝 Register Public Complaint</h2>
+    <h2>📝 Register Complaint</h2>
 
     <form method="POST">
 
         <input
             type="text"
             name="name"
-            placeholder="Enter Your Name"
+            placeholder="Enter your name"
             required>
 
         <textarea
@@ -70,7 +82,9 @@
             required></textarea>
 
         <button type="submit">
-            📩 Submit Complaint
+
+            📤 Submit Complaint
+
         </button>
 
     </form>
@@ -79,15 +93,13 @@
 
     <div class="success">
 
-        <h3>✅ Complaint Registered Successfully</h3>
+        ✅ Complaint Registered Successfully
 
-        <p>
-            Your complaint has been recorded.
-        </p>
+        <br><br>
 
-        <h2>{{ complaint_id }}</h2>
+        <strong>Tracking ID:</strong>
 
-        <p>Please save this Tracking ID for future reference.</p>
+        {{ complaint_id }}
 
     </div>
 
@@ -97,35 +109,43 @@
 
     <h2>🏛 Popular Government Services</h2>
 
-    <ul>
-        <li>✅ Aadhaar Services</li>
-        <li>✅ PAN Card</li>
-        <li>✅ Passport</li>
-        <li>✅ PM Kisan</li>
-        <li>✅ Ayushman Bharat</li>
-        <li>✅ Driving Licence</li>
-        <li>✅ Voter ID</li>
-        <li>✅ Ration Card</li>
-    </ul>
+    <div class="cards">
+
+        <div class="card">
+            <h3>🪪 Aadhaar</h3>
+            <p>Identity Services</p>
+        </div>
+
+        <div class="card">
+            <h3>💳 PAN Card</h3>
+            <p>Tax Identification</p>
+        </div>
+
+        <div class="card">
+            <h3>🛂 Passport</h3>
+            <p>Travel Documents</p>
+        </div>
+
+        <div class="card">
+            <h3>🌾 PM Kisan</h3>
+            <p>Farmer Support</p>
+        </div>
+
+        <div class="card">
+            <h3>🏥 Ayushman Bharat</h3>
+            <p>Health Scheme</p>
+        </div>
+
+    </div>
 
     <hr>
 
-    <h2>⭐ Why Choose Smart Bharat?</h2>
+    <footer>
 
-    <ul>
-        <li>🤖 AI Powered Citizen Assistance</li>
-        <li>📄 Government Document Guidance</li>
-        <li>📝 Complaint Registration & Tracking</li>
-        <li>⚡ Fast & Easy Government Information</li>
-        <li>🌍 Citizen Friendly Digital Platform</li>
-    </ul>
+        <p>
+            🇮🇳 Smart Bharat | Built with Flask + Generative AI
+        </p>
 
-    <hr>
-
-    <footer style="text-align:center; padding:15px; color:gray;">
-        <p><strong>🇮🇳 Smart Bharat – AI Powered Civic Companion</strong></p>
-        <p>Built for PromptWars 2026</p>
-        <p>Developed by <strong>Sana Khan</strong></p>
     </footer>
 
 </div>
